@@ -1,0 +1,10 @@
+services:
+  api:
+    command: npm run dev
+    volumes:
+      - ./:/app
+      - /app/node_modules
+
+  web:
+    volumes:
+      - ./client:/usr/share/nginx/html:ro
