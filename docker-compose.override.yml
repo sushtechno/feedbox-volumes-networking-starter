@@ -1,0 +1,10 @@
+# Development overrides — merged automatically by `docker compose up`
+# Never commit this file's secrets; it is for local dev only.
+services:
+  api:
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      NODE_ENV: development
+
