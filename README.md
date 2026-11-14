@@ -38,7 +38,7 @@ docker compose up --build
 
 The default Compose configuration builds the API and web images. PostgreSQL stores its data in the named `postgres_data` volume, so messages survive container recreation and `docker compose down`.
 
-The `backend` bridge network is marked internal and connects only `api` and `db`. The API waits until PostgreSQL passes its health check before starting. The browser talks to the API through its published host port, so the static `web` container does not need access to the database network.
+The custom `backend` bridge network connects only `api` and `db`. PostgreSQL has no published host port, so it is not directly exposed through a host port mapping. The API waits until PostgreSQL passes its health check before starting. The browser talks to the API through its published host port, so the static `web` container does not need access to the database network.
 
 ## Run with development file watching
 
